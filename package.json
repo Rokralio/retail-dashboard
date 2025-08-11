@@ -1,0 +1,22 @@
+{
+  "name": "retail-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "1.11.0",
+    "vue": "3.5.18"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "6.0.1",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.38",
+    "sass": "1.66.1",
+    "tailwindcss": "3.4.13",
+    "vite": "6.2.4"
+  }
+}
