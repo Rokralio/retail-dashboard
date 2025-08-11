@@ -39,7 +39,7 @@ export default {
     const error = ref(null)
 
     // filtros y paginación
-    const filters = ref({ category: 'all', min: 0, max: 0 })
+    const filters = ref({ category: 'all', min: 0, max: 0, search: '' })
     const page = ref(1)
     const perPage = 5
 
@@ -66,13 +66,20 @@ export default {
 
     const filteredProducts = computed(() => {
       let res = products.value.slice()
-      const { category, min, max } = filters.value
+      const { category, min, max, search } = filters.value
+      
       if (category && category !== 'all') {
         res = res.filter(p => p.category === category)
       }
       const minP = Number(min ?? 0)
       const maxP = Number(max ?? Infinity)
       res = res.filter(p => p.price >= minP && p.price <= (maxP || Infinity))
+
+      if (search && search.trim()) {
+        const term = search.trim().toLowerCase()
+        res = res.filter(p => p.title.toLowerCase().includes(term))
+      }
+
       return res
     })
 
