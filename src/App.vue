@@ -9,7 +9,14 @@
     </section>
 
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <ProductCard v-for="p in paginatedProducts" :key="p.id" :product="p" :exchangeRate="exchangeRate || 1" />
+      <ProductCard 
+        v-for="(p, index) in paginatedProducts" 
+        :key="p.id" 
+        :product="p" 
+        :exchangeRate="exchangeRate || 1"
+        :style="`animation-delay: ${index * 0.1}s`"
+        class="animate-fade-in"
+      />
     </section>
 
     <div class="mt-4">
